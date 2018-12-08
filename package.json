@@ -5,5 +5,9 @@
   "license": "MIT",
   "dependencies": {
     "reveal-md": "^2.4.0"
+  },
+  "scripts": {
+    "dev": "reveal-md -w best-practices.md --theme=moon --highlight-theme=monokai",
+    "static": "reveal-md best-practices.md --theme=moon --highlight-theme=monokai --static _site"
   }
 }
