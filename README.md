@@ -1,5 +1,9 @@
 # README
 
+`git clone git@github.com:ges0909/best-practices.git`
+
+`yarn install`
+
 ## Install
 
 `yarn global add reveal-md`

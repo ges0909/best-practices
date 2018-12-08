@@ -6,6 +6,7 @@ revealOptions:
   slideNumber: true
   transition: slide
   # transitionSpeed: slow
+  embedded: true
   width: 95%
   height: 95%
   minScale: 1
