@@ -430,3 +430,12 @@ Externalized configurations? Your files `application*.yaml` and `ApplicationProp
 ---
 
 # Thank you for your time
+
+---
+
+# Fragments
+
+<div class="fragment" data-fragment-index="3">Appears last</div>
+<div class="fragment" data-fragment-index="1">Appears first</div>
+<div class="fragment" data-fragment-index="2">Appears second</div>
+
