@@ -1,0 +1,5 @@
+<svg height="300" width="300">
+  <circle cx="150" cy="150" r="150" stroke="black" stroke-width="3" fill="red" />
+  <circle cx="150" cy="150" r="100" stroke="black" stroke-width="3" fill="blue" />
+  <circle cx="150" cy="150" r="50" stroke="black" stroke-width="3" fill="yellow" />
+</svg>

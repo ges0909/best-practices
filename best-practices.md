@@ -35,11 +35,11 @@ revealOptions:
 
 After installation you run it from command line with `jhipster`.
 
-_JHipster_ supports two application types: _Monolith_ and _Microservice_. It offers many options to configure an application with authentication, database, caching, etc. Build tools are _Maven_ or [Gradle](https://gradle.org/).
+_JHipster_ supports two application types: _Monolith_ and _Microservice_. It offers many options to configure an application with authentication, database, caching, etc. Backend build tools are _Maven_ and [Gradle](https://gradle.org/).
 
-The _infinIT Service Platform_ uses the _Microservice_ application type and the _Gradle_ build tool. Front-end generation is skipped recently.
+The _infinIT Service Platform_ uses the _Microservice_ application type and the _Gradle_ build tool. Frontend generation is skipped recently.
 
-A microservice runs _"out of the box"_ with `gradlew bootRun`.
+A microservice runs "out of the box" with `gradlew bootRun`.
 
 ---
 
@@ -102,7 +102,7 @@ application {
 }
 ```
 
-JDL-Syntax: [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/)
+JDL-Syntax: see [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/)
 
 ---
 
@@ -252,7 +252,7 @@ _JHipster_ organizes _Java_ packages "_by layer_" (vs. "_by feature_").
 
 The [Spring Framework](https://spring.io/)  is for writing _Java_ applications. We us it to write _Java_ server applications.
 
-It differs from others by implementing the principles _Inversion of Control_ (IoC) and _Dependency Injection_ (DI). For this it introduces _beans_ or _components_.
+It differs from others by implementing the principles _Inversion of Control_ (IoC) and _Dependency Injection_ (DI). For this it introduces the concepts of _Bean_ and _Component_.
 
 Classes annotated with _@Component_, _@Service_, _@RestController_ or _@Repository_ are components. Mainly components are **singletons**, created under the hood by the Spring run-time.
 
@@ -364,7 +364,7 @@ Dto's separate the aspects of persistence (entity) from the aspects of transfer 
 
 Don't add methods with business logic to Dto's.
 
-## Data Transfer Objects in JHipster (BETA)
+## Data Transfer Objects in JHipster
 
 _JHipster_ supports the generation of Dto's. But the feature is new and still in **BETA**. In will be presented later in this series, if we have some expierence how to use it.
 
@@ -474,6 +474,15 @@ Upgrade _JHipster_ and your application.
 
 ---
 
+<!--v-->
+<!-- .slide: style="font-size:smaller;text-align:left" -->
+
+## Future Topics
+
+Reactive _Java_ and _Spring Boot_.
+
+---
+
 # Questions
 
 ---
@@ -488,3 +497,14 @@ Upgrade _JHipster_ and your application.
 <div class="fragment" data-fragment-index="1">Appears first</div>
 <div class="fragment" data-fragment-index="2">Appears second</div>
 
+---
+
+# SVG
+
+<!-- ![circles](svg/circles.svg) -->
+
+<svg height="300" width="300">
+  <circle cx="150" cy="150" r="150" stroke="black" stroke-width="3" fill="red" />
+  <circle cx="150" cy="150" r="100" stroke="black" stroke-width="3" fill="blue" />
+  <circle cx="150" cy="150" r="50" stroke="black" stroke-width="3" fill="yellow" />
+</svg>
