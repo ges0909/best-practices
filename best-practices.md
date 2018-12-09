@@ -31,11 +31,11 @@ revealOptions:
 
 ## What is JHipster
 
-[JHipster](https://www.jhipster.tech/) is a scaffolding tool for project generation with [Angular](https://angular.io/) or [React](https://reactjs.org/) (front-end) and [Spring Boot](https://spring.io/projects/spring-boot) (back-end).
+[JHipster](https://www.jhipster.tech/) is a scaffolding tool for project generation with [Angular](https://angular.io/) or [React](https://reactjs.org/) (frontend) and [Spring Boot](https://spring.io/projects/spring-boot) (backend).
 
 After installation you run it from command line with `jhipster`.
 
-The generator supports the application types _Monolith_ and _Microservice_ and offers many options to configure your application with authentication, database, caching, etc. Build tools are _Maven_ or [Gradle](https://gradle.org/).
+_JHipster_ supports two application types: _Monolith_ and _Microservice_. It offers many options to configure an application with authentication, database, caching, etc. Build tools are _Maven_ or [Gradle](https://gradle.org/).
 
 The _infinIT Service Platform_ uses the _Microservice_ application type and the _Gradle_ build tool. Front-end generation is skipped recently.
 
@@ -48,8 +48,8 @@ A microservice runs _"out of the box"_ with `gradlew bootRun`.
 
 ## Sub Generators
 
-| jhipster            | Description                                     |
-| ------------------- | ----------------------------------------------- |
+| `jhipster`          | Description                                     |
+|---------------------|-------------------------------------------------|
 | `upgrade`           | upgrade application to new _JHipster_ release   |
 | `entity`            | domain classes with `@Entity`                   |
 | `spring-controller` | REST controller classses with `@RestController` |
@@ -82,9 +82,7 @@ But sometimes you can't avoid the change of generated stuff like for `Applicatio
 
 ## Application Generation
 
-Define application in `*.jh` file and run `jhipster import-jdl *.jh`.
-
-Syntax: [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/)
+Beside running `jhipster` with Q&A, you can use _JHipster Domain Language_ (JDL) to define an application in a `*.jh` file and run `jhipster import-jdl *.jh`.
 
 ```js
 application {
@@ -103,6 +101,8 @@ application {
   }
 }
 ```
+
+JDL-Syntax: [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/)
 
 ---
 
@@ -126,7 +126,7 @@ Add `*.jh` file to version control!
 
 ## Entity Generation
 
-Define application in `*.jh` file. Add file to version control.
+Beside running `jhipster entity` you can use _JHipster Domain Language_ (JDL) to define entities in a `*.jh` file and run `jhipster import-jdl *.jh`.
 
 ```js
 entity AnomalySequence {
@@ -147,8 +147,6 @@ relationship OneToMany {
 skipClient * // skip generation of front-end code
 ```
 
-Run `jhipster import-jdl *.jh`.
-
 ---
 
 <!--v-->
@@ -160,7 +158,7 @@ Choose most approriate JDL types for your problem domain, e.g.  `Instant` instea
 
 Use validation constraints like `required`, `unique`, `pattern`, `min`, `max`, ... as far as possible.
 
-If you want to access a database owned by another sub-project, import and use the sub-project's entity and repository classes by adding a project dependency to your `build.gradle` file.
+If you want to access a database owned by another sub-project, add a project dependency to your `build.gradle` file to get access to entity and repository classes.
 
 ```gradle
 dependencies {
@@ -201,11 +199,11 @@ _JHipster_ organizes _Java_ packages "_by layer_" (vs. "_by feature_").
 
 The [Spring Framework](https://spring.io/)  is for writing _Java_ applications. We us it to write _Java_ server applications.
 
-It differs from others by implementing the priciples _Inversion of Control_ (IoC) and _Dependency Injection_ (DI). For this it introduces _beans_ or _components_.
+It differs from others by implementing the principles _Inversion of Control_ (IoC) and _Dependency Injection_ (DI). For this it introduces _beans_ or _components_.
 
 Classes annotated with _@Component_, _@Service_, _@RestController_ or _@Repository_ are components. Mainly components are **singletons**, created under the hood by the Spring run-time.
 
-With _@Autowired_ (or _@Inject_) you inject other components into your components. Spring provides the link at run-time
+With _@Autowired_ (or _@Inject_) you inject other components into your component. Spring resolves the link at run-time.
 
 Don't use _Java_'s `new` operator to create or autowire components!
 
@@ -353,13 +351,13 @@ Never again checks with stupid _if_'s. The _**@Valid**_ annotation triggers vali
 
 ## REST API Tests
 
-By default all routes to _JHipster_ generated microservices are secured by a _JSON Web Token_ ([JWT](https://www.jhipster.tech/security/)). You must be authenticated to access the REST API. Otherwise you will receive `401 Unauthorized` .
+All routes (`/api/...`) to _JHipster_ generated microservices are secured by a _JSON Web Token_ ([JWT](https://www.jhipster.tech/security/)). You must be authenticated to access the REST API. Otherwise you will receive `401 Unauthorized` .
 
-The `*Int` tests generated by _JHipster_ using a technique called _Slicing_. In case of REST controllers only those server parts required to run the REST call are started. Slicing bypasses security.
+The `*Int` tests generated by _JHipster_ using a technique called _Slicing_. Only those server parts required to run the REST call are started. Slicing bypasses security.
 
-Use `*Int` tests generated by _JHipster_ as blueprint for your own test to minimize the risk of non-working tests.
+**Tip**: Use `*Int` tests generated by _JHipster_ as blueprint for your own tests to minimize the risk of non-working tests.
 
-Think to write negative tests also. Test value boundaries and values immeditately before and after the boundaries.
+Write negative tests also. Check values on boundaries and immeditately before and after boundaries.
 
 ---
 
@@ -422,6 +420,8 @@ Custom Queries: `@Query`, `Find-By-Example`, `find` methods.
 Matt Raible Verhältnis generiert/selbst geschrieben => http://www.jhipster-book.com/#!/
 
 Externalized configurations? Your files `application*.yaml` and `ApplicationProperties.java`. What is "_relaxed binding_"?
+
+Upgrade _JHipster_ and your application.
 
 ---
 
