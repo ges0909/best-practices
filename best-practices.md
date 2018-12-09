@@ -18,7 +18,7 @@ revealOptions:
 
 ## infinIT Service Platform
 
-### 08/12/2018
+### 09/12/2018
 
 ---
 
@@ -107,6 +107,32 @@ JDL-Syntax: [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/)
 ---
 
 <!--v-->
+<!-- .slide: style="font-size:smaller" -->
+
+```sh
+cloc --exclude-dir=node_modules .
+...
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+JSON                             3              0              0           4471
+Java                            63            587            363           2445
+YAML                             9             36            183            381
+Gradle                           7             61             22            342
+HTML                             2             38              0            228
+XML                              4             22             27            149
+Bourne Shell                     3             23             22            135
+DOS Batch                        1             23              2             59
+Markdown                         1             42              0             51
+Dockerfile                       1              7              1             12
+-------------------------------------------------------------------------------
+SUM:                            94            839            620           8273
+-------------------------------------------------------------------------------
+```
+
+---
+
+<!--v-->
 <!-- .slide: style="font-size:smaller;text-align:left" -->
 
 ## Best Practice: Application Generation
@@ -145,6 +171,33 @@ relationship OneToMany {
 }
 
 skipClient * // skip generation of front-end code
+```
+
+---
+
+<!--v-->
+<!-- .slide: style="font-size:smaller" -->
+
+```sh
+λ cloc --exclude-dir=node_modules .
+...
+github.com/AlDanial/cloc v 1.78  T=0.50 s (213.2 files/s, 22058.4 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+JSON                             5              0              0           4561
+Java                            71            785            523           3227
+YAML                             9             36            183            381
+Gradle                           7             61             22            342
+HTML                             2             38              0            228
+XML                              7             40             40            224
+Bourne Shell                     3             23             22            135
+DOS Batch                        1             23              2             59
+Markdown                         1             42              0             51
+Dockerfile                       1              7              1             12
+-------------------------------------------------------------------------------
+SUM:                           107           1055            793           9220
+-------------------------------------------------------------------------------
 ```
 
 ---
@@ -407,19 +460,15 @@ _Gitflow_: The first action after cloning a repository should be `git flow init`
 ---
 
 <!--v-->
-<!-- .slide: style="font-size:smaller" -->
+<!-- .slide: style="font-size:smaller;text-align:left" -->
 
 ## Open Topics
 
-<!-- .slide: style="font-size:smaller;text-align:left" -->
+Externalized configurations: Files `application*.yaml` and `ApplicationProperties.java`. What is "_relaxed binding_"?
 
 Custom Queries: `@Query`, `Find-By-Example`, `find` methods.
 
-`FeignClient` for REST calls to other microservice.
-
-Matt Raible Verhältnis generiert/selbst geschrieben => http://www.jhipster-book.com/#!/
-
-Externalized configurations? Your files `application*.yaml` and `ApplicationProperties.java`. What is "_relaxed binding_"?
+`@FeignClient` for REST calls to other microservice.
 
 Upgrade _JHipster_ and your application.
 
