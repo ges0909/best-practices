@@ -50,7 +50,7 @@ A microservice runs "out of the box" with `gradlew bootRun`.
 
 | `jhipster`          | Description                                     |
 |---------------------|-------------------------------------------------|
-| `upgrade`           | upgrade application to new _JHipster_ release   |
+| `upgrade`           | upgrade app. with new _JHipster_ version        |
 | `entity`            | domain classes with `@Entity`                   |
 | `spring-controller` | REST controller classses with `@RestController` |
 | `spring-service`    | business logic classes with `@Service`          |
@@ -107,10 +107,10 @@ JDL-Syntax: see [JHipster Domain Language (JDL)](https://www.jhipster.tech/jdl/)
 ---
 
 <!--v-->
-<!-- .slide: style="font-size:smaller" -->
+<!-- .slide: style="font-size:smaller;;text-align:left" -->
 
 ```sh
-cloc --exclude-dir=node_modules .
+λ cloc --exclude-dir=node_modules .
 ...
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
@@ -129,6 +129,8 @@ Dockerfile                       1              7              1             12
 SUM:                            94            839            620           8273
 -------------------------------------------------------------------------------
 ```
+
+[Wikipedia](https://de.wikipedia.org/wiki/Lines_of_Code): "_Üblicherweise rechnet man mit einer Produktivität – inklusive aller Projekttätigkeiten – von 10 bis 50 Codezeilen je Mitarbeiter und Tag._"
 
 ---
 
@@ -250,7 +252,7 @@ _JHipster_ organizes _Java_ packages "_by layer_" (vs. "_by feature_").
 
 ## What is Spring
 
-The [Spring Framework](https://spring.io/)  is for writing _Java_ applications. We us it to write _Java_ server applications.
+The [Spring Framework](https://spring.io/) is for writing _Java_ applications. We us it to write _Java_ server applications.
 
 It differs from others by implementing the principles _Inversion of Control_ (IoC) and _Dependency Injection_ (DI). For this it introduces the concepts of _Bean_ and _Component_.
 
@@ -360,7 +362,7 @@ public UserDto getUser(@PathVariable Long id) {
 
 ## Why should I use Dto's
 
-Dto's separate the aspects of persistence (entity) from the aspects of transfer (Dto). As developer you get full control over what will be visible outside your REST service. That's good:exclamation:
+Dto's separate the aspects of persistence (entity) from the aspects of transfer (Dto). They follow the principle of _Separation of Concerns_. As developer you get full control over what will be visible outside your REST service. That's good!
 
 Don't add methods with business logic to Dto's.
 
@@ -375,27 +377,29 @@ _JHipster_ supports the generation of Dto's. But the feature is new and still in
 
 ## Bean Validation for Dto's
 
-[Bean Validation](https://beanvalidation.org/) means "_Constrain once, validate everywhere_".
+Bean Validation means "_Constrain once, validate everywhere_".
 
 ```java
 class AccountDto {
-    @NotNull @Size(min=8, max=16) // constrain
+    @NotNull @Size(min=8, max=16) // constrain once
     String name;
-    @Email                        // constrain
+    @Email                        // constrain once
     String email;
-    @NotNull @Min(0) @Max(99)     // constrain
+    @NotNull @Min(0) @Max(99)     // constrain once
     Integer age;
 }
 ```
 
 ```java
 @PostMapping(value = "/accounts", consumes = MediaType.APPLICATION_JSON)
-public void createAccount(@Valid /*validate*/ AccountDto account) {
+public void createAccount(@Valid /*validate everywhere*/ AccountDto account) {
   ...
 }
 ```
 
 Never again checks with stupid _if_'s. The _**@Valid**_ annotation triggers validation. A constrain violation results in throwing an exception.
+
+Syntax: see [Bean Validation](https://beanvalidation.org/)
 
 ---
 
@@ -424,8 +428,11 @@ Modify file `config/SecurityConfiguration.java` .
 ```java
 @Profile("!dev") // add this annotation
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-  ...
-}
+  @Override
+  public void configure(HttpSecurity http) throws Exception {
+    ...
+    .authorizeRequests()
+    .antMatchers("/api/**").authenticated()
 ```
 
 Add new file `config/SecurityConfigurationDevProfile.java` .
@@ -435,10 +442,10 @@ Add new file `config/SecurityConfigurationDevProfile.java` .
 @EnableWebSecurity
 @Profile("dev")
 public class SecurityConfigurationDevProfile extends WebSecurityConfigurerAdapter {
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/**");
-    }
+  @Override
+  public void configure(WebSecurity web) {
+    web.ignoring().antMatchers("/api/**");
+  }
 }
 ```
 
@@ -464,9 +471,11 @@ _Gitflow_: The first action after cloning a repository should be `git flow init`
 
 ## Open Topics
 
-Externalized configurations: Files `application*.yaml` and `ApplicationProperties.java`. What is "_relaxed binding_"?
+Externalized configurations: Files `application*.yaml` and `ApplicationProperties.java` and "_relaxed binding_"?
 
 Custom Queries: `@Query`, `Find-By-Example`, `find` methods.
+
+Test: How to mock components with _Mockito_? Fluent assertions with _AssertJ_.
 
 `@FeignClient` for REST calls to other microservice.
 
