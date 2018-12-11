@@ -31,13 +31,13 @@ revealOptions:
 
 ## What is JHipster
 
-[JHipster](https://www.jhipster.tech/) is a scaffolding tool for project generation with [Angular](https://angular.io/) or [React](https://reactjs.org/) (frontend) and [Spring Boot](https://spring.io/projects/spring-boot) (backend).
+[JHipster](https://www.jhipster.tech/) is a scaffolding tool for project generation with [Angular](https://angular.io/) or [React](https://reactjs.org/) (front-end) and [Spring Boot](https://spring.io/projects/spring-boot) (back-end).
 
 After installation you run it from command line with `jhipster`.
 
-_JHipster_ supports two application types: _Monolith_ and _Microservice_. It offers many options to configure an application with authentication, database, caching, etc. Backend build tools are _Maven_ and [Gradle](https://gradle.org/).
+_JHipster_ supports two application types: _Monolith_ and _Microservice_. It offers many options to configure an application with authentication, database, caching, etc. Build tools for back-end are _Maven_ and [Gradle](https://gradle.org/).
 
-The _infinIT Service Platform_ uses the _Microservice_ application type and the _Gradle_ build tool. Frontend generation is skipped recently.
+The _infinIT Service Platform_ uses the _Microservice_ application type and the _Gradle_ build tool. Front-end generation is skipped recently.
 
 A microservice runs "out of the box" with `gradlew bootRun`.
 
@@ -82,7 +82,7 @@ But sometimes you can't avoid the change of generated stuff like for `Applicatio
 
 ## Application Generation
 
-Beside running `jhipster` with Q&A, you can use _JHipster Domain Language_ (JDL) to define an application in a `*.jh` file and run `jhipster import-jdl *.jh`.
+Beside running "`jhipster`" with Q&A, you can use _JHipster Domain Language_ (JDL) to define an application in a "`*.jh`" file and run "`jhipster import-jdl *.jh`".
 
 ```js
 application {
@@ -143,9 +143,9 @@ Select a unique _Java_ package name for your microservice.
 
 _Java_ packages define a namespace shielding your symbol names from symbols named the same in other packages.
 
-A name `de.infinitservices.forge.serviceplatform` is not sufficient. All microservices would belong to the same package resulting sooner or later in name clashes.
+A name "`de.infinitservices.forge.serviceplatform`" is not sufficient. All microservices would belong to the same package resulting sooner or later in name clashes.
 
-Add `*.jh` file to version control!
+Add "`*.jh`" file to version control!
 
 ---
 
@@ -154,7 +154,7 @@ Add `*.jh` file to version control!
 
 ## Entity Generation
 
-Beside running `jhipster entity` you can use _JHipster Domain Language_ (JDL) to define entities in a `*.jh` file and run `jhipster import-jdl *.jh`.
+Beside running "`jhipster entity`" with Q&A you can use _JHipster Domain Language_ (JDL) to define entities in a "`*.jh`" file and run "`jhipster import-jdl *.jh`".
 
 ```js
 entity AnomalySequence {
@@ -256,11 +256,13 @@ The [Spring Framework](https://spring.io/) is for writing _Java_ applications. W
 
 It differs from others by implementing the principles _Inversion of Control_ (IoC) and _Dependency Injection_ (DI). For this it introduces the concepts of _Bean_ and _Component_.
 
-Classes annotated with _@Component_, _@Service_, _@RestController_ or _@Repository_ are components. Mainly components are **singletons**, created under the hood by the Spring run-time.
+Classes annotated with _@Component_, _@Service_, _@Controller_ or _@Repository_ are components. Mainly components are **singletons**, created under the hood by the Spring run-time.
 
 With _@Autowired_ (or _@Inject_) you inject other components into your component. Spring resolves the link at run-time.
 
 Don't use _Java_'s `new` operator to create or autowire components!
+
+A Spring application consists of loosely coupled components.
 
 ---
 
@@ -269,7 +271,13 @@ Don't use _Java_'s `new` operator to create or autowire components!
 
 ## What is Spring Boot
 
-[Spring Boot](https://spring.io/projects/spring-boot) is your friend. It eases the usage of Spring radically.
+[Spring Boot](https://spring.io/projects/spring-boot) is based on the _Spring Framework_. It is your friend because it eases the usage of Spring radically.
+
+Spring Boot ensures that you get library versions that are guaranteed to work together without problems.
+
+Further it auto-configures you application depending on what is on your _classpath_. It prefers _Java_ configuration against the stupid XML configuration of the Spring Framework.
+
+And it brings an embedded server freeing you from the burden  to deploy your application to any server. Just run "`java -jar <application>.jar`" and your server application starts magi
 
 ---
 
@@ -278,9 +286,7 @@ Don't use _Java_'s `new` operator to create or autowire components!
 
 ## Best Practice: Dependency Injection
 
-There is _Field_-, _Setter_- and _Constructor Injection_.
-
-The recommended way is _Constructor Injection_.
+There is _Field_-, _Setter_- and _Constructor Injection_. But the recommended way is _Constructor Injection_.
 
 ```java
 @Service
