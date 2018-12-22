@@ -477,15 +477,17 @@ _Gitflow_: The first action after cloning a repository should be `git flow init`
 
 ## Open Topics
 
-Externalized configurations: Files `application*.yaml` and `ApplicationProperties.java` and "_relaxed binding_"?
+Externalized configurations with files `application*.yml` and `ApplicationProperties.java`. What is "relaxed binding"?
 
-Custom Queries: `@Query`, `Find-By-Example`, `find` methods.
+How to write custom Queries with `@Query`, `Find-By-Example` or `find` method?
 
-Test: How to mock components with _Mockito_? Fluent assertions with _AssertJ_.
+How to mock components with _Mockito_? Better assertions with the fluent API of _AssertJ_.
 
-`@FeignClient` for REST calls to other microservice.
+How to use _Feign_ for REST calls to other services?
 
-Upgrade _JHipster_ and your application.
+How to upgrade _JHipster_ and applications?
+
+Differences between interfaces like _List_ and their implementations like _ArrayList_. How to use it?
 
 ---
 

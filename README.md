@@ -12,7 +12,7 @@ Install project dependencies, including `reveal-md`.
 
 Start live server and present in browser.
 
-`yarn reveal-md best-practices.md --theme=moon --highlight-theme=monokai --static _site`
+`yarn reveal-md best-practices.md --theme=moon --highlight-theme=monokai`
 
 Convert to PDF.
 
